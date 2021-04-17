@@ -15,3 +15,12 @@ The full source code ready to be downloaded with an instruction guide on wiring 
       - Jokes
       - Riddles
   - Plant watering reminder
+  - FitBit Web API integration:
+      - Morning message to include sleep information from night before
+      - Fitness brief printable by request of the user
+ 
+ # Android Companion Application
+  An android app which can be downloaded to connect to the raspberry pi. 
+    Features:
+      - Trigger events manually
+      - Change settings for thermal
