@@ -127,9 +127,9 @@ class Sudoku():
 
     def SaveSudoku(self):
         solvedImage = self.CreateSudokuImage(self.sudoku['solved'])
-        solvedImage.save("/home/pi/Desktop/Thermal_1.0/Logic/Features/Sudoku/Saved_Sudoku/solved.png")
+        solvedImage.save("/home/pi/Desktop/Thermal/Logic/Features/Sudoku/Saved_Sudoku/solved.png")
         unsolvedImage = self.CreateSudokuImage(self.sudoku['unsolved'])
-        unsolvedImage.save("/home/pi/Desktop/Thermal_1.0/Logic/Features/Sudoku/Saved_Sudoku/unsolved.png")
+        unsolvedImage.save("/home/pi/Desktop/Thermal/Logic/Features/Sudoku/Saved_Sudoku/unsolved.png")
         
         #printer = Printer()
         #printer.printer.feed(3)
@@ -159,13 +159,13 @@ class Sudoku():
         printer.doubleHeightOn()
         printer.printer.print("Level: {level}".format(level=self.level))
         printer.printer.feed(1)
-        printer.PrintBitmap("/home/pi/Desktop/Thermal_1.0/Logic/Features/Sudoku/Saved_Sudoku/unsolved.png") 	
+        printer.PrintBitmap("/home/pi/Desktop/Thermal/Logic/Features/Sudoku/Saved_Sudoku/unsolved.png") 	
 
 
 
     def PrintSudokuAnswer(self):
         printer = Printer()
-        printer.PrintBitmap("/home/pi/Desktop/Thermal_1.0/Logic/Features/Sudoku/Saved_Sudoku/solved.png")
+        printer.PrintBitmap("/home/pi/Desktop/Thermal/Logic/Features/Sudoku/Saved_Sudoku/solved.png")
 
     def GetSudokuFromHistory(self, sudokuId):
         if CSVManager.VerifyQuizFile():
@@ -179,9 +179,9 @@ class Sudoku():
             self.PrintSudokuAnswer()
 
     def CreateSudokuImage(self, sudoku):
-        base = Image.open("/home/pi/Desktop/Thermal_1.0/Logic/Features/Sudoku/Base_Files/baseSuduko.png").convert("RGBA")
+        base = Image.open("/home/pi/Desktop/Thermal/Logic/Features/Sudoku/Base_Files/baseSuduko.png").convert("RGBA")
         txt = Image.new("RGBA", base.size, (255,255,255,0))
-        fnt = ImageFont.truetype("/home/pi/Desktop/Thermal_1.0/Logic/Features/Sudoku/Base_Files/Anton.ttf", 200)
+        fnt = ImageFont.truetype("/home/pi/Desktop/Thermal/Logic/Features/Sudoku/Base_Files/Anton.ttf", 200)
         d = ImageDraw.Draw(txt)
         moveValue = 230
 

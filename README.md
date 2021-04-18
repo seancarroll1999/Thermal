@@ -24,3 +24,18 @@ The full source code ready to be downloaded with an instruction guide on wiring 
     Features:
       - Trigger events manually
       - Change settings for thermal
+
+# Todo List:
+  - Convert to multi threading application to use Buttons/Flask/Timing events
+  - Change to command structure to stack to properly execute commands in order from many different threads
+  - Inlcude status api call to update android app on status of printing
+
+# Thread Structure:
+  1. Main Thread: The status of the application and the stack of commands
+  2. Printing Thread: Handles all printing functions, allows for printing to continue un-disturberd 
+  3. API Thread: The flask application which allows the android application to communicate with the thermal printer
+  4. Button Thread: Handles physical button activity from the printer. 
+
+  All threads will add commands to the stack on the main thread, the main thread will process the stack one by one on a FIFO basis updating the status to notify certain triggers. 
+
+  (need to figure a way to communicate between the threads, perhaps another thread is needed to share the varaibles between the threads)

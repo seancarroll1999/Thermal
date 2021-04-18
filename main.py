@@ -71,11 +71,13 @@ def NewSudoku():
     else:
         difficulty = 'Medium'
     
+    print("Generating Sudoku...")
     sudoku = Sudoku(difficulty)
     sudoku.GetSudoku()
     sudoku.SudokuNotRepeated()
     sudoku.SaveSudoku()
     sudoku.SaveSudokuHistory()
+    print("Printing Sudoku...")
     sudoku.PrintSudokuQuestion()
     
     return "printNew"
@@ -84,8 +86,8 @@ def NewSudoku():
 def AnswerRecent():
     #sudoku = Sudoku()
     #sudoku.GetLatestSudoku()
-    #Code.AnswerRecentSudoku()
-    Button.ShortPress()
+    Code.AnswerRecentSudoku()
+    #Button.ShortPress()
     return "printAnswer"
 
 def flaskApp():

@@ -30,12 +30,12 @@ def GetHeaderDetails(fileName):
     return dataFrame.loc[0]
 
 def GetHeaderFilePath(fileName):
-    return '/home/pi/Desktop/Thermal_1.0/Storage/API_Headers/{fileName}.CSV'.format(fileName = fileName)
+    return '/home/pi/Desktop/Thermal/Storage/API_Headers/{fileName}.CSV'.format(fileName = fileName)
 # endregion
 
 # region History File Functions
 def VerifyHistoryFile(fileName):
-    filePath = '/home/pi/Desktop/Thermal_1.0/Storage/History/{fileName}.CSV'.format(fileName = fileName)
+    filePath = '/home/pi/Desktop/Thermal/Storage/History/{fileName}.CSV'.format(fileName = fileName)
     if os.path.isfile(filePath):
         return True
     return False
@@ -63,36 +63,36 @@ def CheckHistoryFile(fileName, value):
     return True
 
 def CreateHistoryFilePath(fileName):
-    return '/home/pi/Desktop/Thermal_1.0/Storage/History/{fileName}.CSV'.format(fileName = fileName)
+    return '/home/pi/Desktop/Thermal/Storage/History/{fileName}.CSV'.format(fileName = fileName)
 # endregion
 
 # region Quiz History
 
 def VerifyQuizFile():
-    filePath = '/home/pi/Desktop/Thermal_1.0/Storage/Quiz_History.csv'
+    filePath = '/home/pi/Desktop/Thermal/Storage/Quiz_History.csv'
     if os.path.isfile(filePath):
         return True
     return False
 
 def CreateQuizFile():
-    filePath = '/home/pi/Desktop/Thermal_1.0/Storage/Quiz_History.csv'
+    filePath = '/home/pi/Desktop/Thermal/Storage/Quiz_History.csv'
     columns = ['ID', 'DATETIME', 'TYPE', 'ITEM']
     dataFrame = pd.DataFrame(columns = columns)
     dataFrame.to_csv(filePath, index=False)
 
 def InsertQuiz(data):
-    filePath = '/home/pi/Desktop/Thermal_1.0/Storage/Quiz_History.csv'
+    filePath = '/home/pi/Desktop/Thermal/Storage/Quiz_History.csv'
     dataFrame = pd.read_csv(filePath)
     dataFrame = AddRow(dataFrame, data)
     dataFrame.to_csv(filePath, index=False)
 
 def GetQuizItem(id):
-    filePath = '/home/pi/Desktop/Thermal_1.0/Storage/Quiz_History.csv'
+    filePath = '/home/pi/Desktop/Thermal/Storage/Quiz_History.csv'
     dataFrame = pd.read_csv(filePath)
     return json.loads(dataFrame.loc[dataFrame['ID'] == id].ITEM.max())
 
 def GetLatestSudokuQuiz():
-    filePath = '/home/pi/Desktop/Thermal_1.0/Storage/Quiz_History.csv'
+    filePath = '/home/pi/Desktop/Thermal/Storage/Quiz_History.csv'
     dataFrame = pd.read_csv(filePath)
     return json.loads(dataFrame.loc[(dataFrame['ITEM'] == 'Sudoku').idxmax(),'ITEM'])
 
@@ -101,25 +101,25 @@ def GetLatestSudokuQuiz():
 # region Settings
 
 def VerifySettingsFile():
-    filePath = '/home/pi/Desktop/Thermal_1.0/Storage/Setting.csv'
+    filePath = '/home/pi/Desktop/Thermal/Storage/Setting.csv'
     if os.path.isfile(filePath):
         return True
     return False
 
 def CreateSettinsFile():
-    filePath = '/home/pi/Desktop/Thermal_1.0/Storage/Setting.csv'
+    filePath = '/home/pi/Desktop/Thermal/Storage/Setting.csv'
     columns = ['NAME', 'VALUE']
     dataFrame = pd.DataFrame(columns = columns)
     dataFrame.to_csv(filePath, index=False)
 
 def InsertSetting(data):
-    filePath = '/home/pi/Desktop/Thermal_1.0/Storage/Setting.csv'
+    filePath = '/home/pi/Desktop/Thermal/Storage/Setting.csv'
     dataFrame = pd.read_csv(filePath)
     dataFrame = AddRow(dataFrame, data)
     dataFrame.to_csv(filePath, index=False)
 
 def GetSetting(name):
-    filePath = '/home/pi/Desktop/Thermal_1.0/Storage/Setting.csv'
+    filePath = '/home/pi/Desktop/Thermal/Storage/Setting.csv'
     dataFrame = pd.read_csv(filePath)
     return dataFrame.loc[dataFrame['NAME'] == name].ITEM.max()
 
@@ -128,25 +128,25 @@ def GetSetting(name):
 # region TimeEvents
 
 def VerifyTimeFile():
-    filePath = '/home/pi/Desktop/Thermal_1.0/Storage/Time_Events.csv'
+    filePath = '/home/pi/Desktop/Thermal/Storage/Time_Events.csv'
     if os.path.isfile(filePath):
         return True
     return False
 
 def CreateTimeFile():
-    filePath = '/home/pi/Desktop/Thermal_1.0/Storage/Time_Events.csv'
+    filePath = '/home/pi/Desktop/Thermal/Storage/Time_Events.csv'
     columns = ['DATE_TIME', 'EVENT']
     dataFrame = pd.DataFrame(columns = columns)
     dataFrame.to_csv(filePath, index=False)
 
 def InsertTimeEvent(data):
-    filePath = '/home/pi/Desktop/Thermal_1.0/Storage/Time_Events.csv'
+    filePath = '/home/pi/Desktop/Thermal/Storage/Time_Events.csv'
     dataFrame = pd.read_csv(filePath)
     dataFrame = AddRow(dataFrame, data)
     dataFrame.to_csv(filePath, index=False)
 
 def GetTimeEvents():
-    filePath = '/home/pi/Desktop/Thermal_1.0/Storage/Time_Events.csv'
+    filePath = '/home/pi/Desktop/Thermal/Storage/Time_Events.csv'
     dataFrame = pd.read_csv(filePath)
     console.log(dataFrame)
 
