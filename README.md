@@ -10,14 +10,10 @@ The full source code ready to be downloaded with an instruction guide on wiring 
 # Potential feature list
   - Web server using flask for phone interaction
   - Time events to trigger on specific days and at random intervals
-  - Events:
-      - Sudoku Generation
-      - Jokes
-      - Riddles
-  - Plant watering reminder
-  - FitBit Web API integration:
-      - Morning message to include sleep information from night before
-      - Fitness brief printable by request of the user
+  - Weather
+  - Crypto portfolio updates (%+- from previous day)
+  - Morning Message (Summary of all events, status updates)
+  - Google Calendar integration (Morning Message additional feature)
  
  # Android Companion Application
   An android app which can be downloaded to connect to the raspberry pi. 
